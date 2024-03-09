@@ -1,0 +1,22 @@
+{
+  "name": "grader",
+  "version": "1.0.0",
+  "description": "A backend server for the grader application",
+  "main": "backend/server.ts",
+  "scripts": {
+    "start": "ts-node backend/server.ts",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "Doga Ister",
+  "license": "ISC",
+  "dependencies": {
+    "sqlite3": "^5.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "express": "^4.18.3"
+  }
+}
