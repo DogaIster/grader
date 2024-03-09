@@ -2,9 +2,9 @@ import * as sqlite3 from 'sqlite3';
 import { Result } from "../models/resultModel";
 
 // Define database file paths
-const resultDBPath = './resultDatabase.ts';
-const studentDBPath = './studentDatabase.ts';
-const courseDBPath = './courseDatabase.ts';
+const resultDBPath = './resultDatabase.db';
+const studentDBPath = './studentDatabase.db';
+const courseDBPath = './courseDatabase.db';
 
 // Initialize the databases
 const resultDB = new sqlite3.Database(resultDBPath);

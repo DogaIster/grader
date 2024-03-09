@@ -1,10 +1,10 @@
 {
-  "name": "grader",
+  "name": "grader-backend",
   "version": "1.0.0",
   "description": "A backend server for the grader application",
-  "main": "backend/server.ts",
+  "main": "server.ts",
   "scripts": {
-    "start": "ts-node backend/server.ts",
+    "start": "ts-node server.ts",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [],
