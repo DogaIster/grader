@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import { StudentService } from '../services/student.service';
 import {NotificationService} from "../shared/services/notification.service";
+import {StudentUpdateService} from "../shared/services/student-update.service";
 
 @Component({
   selector: 'add-new-students',
@@ -14,7 +15,8 @@ export class AddNewStudentsComponent {
   constructor(
     private formBuilder: FormBuilder,
     private studentService: StudentService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private studentUpdateService: StudentUpdateService
   ) {
     this.studentForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
@@ -41,6 +43,7 @@ export class AddNewStudentsComponent {
         console.log('Student added successfully:', response);
         this.notificationService.add('New student added successfully!');
         this.studentForm.reset();
+        this.studentUpdateService.notifyStudentAdded();
       },
       (error) => {
         console.error('Error adding student:', error);
