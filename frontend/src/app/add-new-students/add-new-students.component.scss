@@ -45,11 +45,16 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
 
-.submit-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+  &:hover {
+    background-color: #0056b3;
+  }
+
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 }
 
 h2 {

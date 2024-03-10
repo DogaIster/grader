@@ -23,7 +23,7 @@ describe('StudentService', () => {
   });
 
   it('should create a student', () => {
-    const newStudent: Student = { id: 1, firstName: 'John', lastName: 'Doe', dob: '1993-04-23', email: 'john.doe@gmail.com' }
+    const newStudent: Student = { id: 1, first_name: 'John', lastName: 'Doe', dob: '1993-04-23', email: 'john.doe@gmail.com' }
 
     service.addStudent(newStudent).subscribe((student: any) => {
       expect(student).toEqual(newStudent);
@@ -36,8 +36,8 @@ describe('StudentService', () => {
 
   it('should retrieve all students', () => {
     const dummyStudents: Student[] = [
-      { id: 1, firstName: 'John', lastName: 'Doe', dob: '1993-04-23', email: 'john.doe@gmail.com' },
-      { id: 2, firstName: 'Jane', lastName: 'Smith', dob: '1995-02-18', email: 'jane.smith@gmail.com' }
+      { id: 1, first_name: 'John', lastName: 'Doe', dob: '1993-04-23', email: 'john.doe@gmail.com' },
+      { id: 2, first_name: 'Jane', lastName: 'Smith', dob: '1995-02-18', email: 'jane.smith@gmail.com' }
     ];
 
     service.getAllStudents().subscribe((students: string | any[]) => {
@@ -52,7 +52,7 @@ describe('StudentService', () => {
 
   it('should retrieve a student by id', () => {
     const studentId = 1;
-    const dummyStudent: Student = { id: studentId, firstName: 'John', lastName: 'Doe', dob: '1993-04-23', email: 'john.doe@gmail.com' };
+    const dummyStudent: Student = { id: studentId, first_name: 'John', lastName: 'Doe', dob: '1993-04-23', email: 'john.doe@gmail.com' };
 
     service.getStudentById(studentId).subscribe((student: any) => {
       expect(student).toEqual(dummyStudent);

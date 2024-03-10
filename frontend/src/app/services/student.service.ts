@@ -22,8 +22,8 @@ export class StudentService {
 
   addStudent(firstName: string, lastName: string, dob: string, email: string): Observable<Student> {
     const payload = {
-      first_name: firstName,
-      last_name: lastName,
+      firstName: firstName,
+      lastName: lastName,
       dob: dob,
       email: email
     };

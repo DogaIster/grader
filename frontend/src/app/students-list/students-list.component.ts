@@ -25,8 +25,8 @@ export class StudentsListComponent implements OnInit {
       // Map the received data to match the expected property names with the BE
       this.students = data.map((student: any) => ({
         id: student.id,
-        firstName: student.first_name,
-        lastName: student.last_name,
+        firstName: student.firstName,
+        lastName: student.lastName,
         dob: student.dob,
         email: student.email
       }));

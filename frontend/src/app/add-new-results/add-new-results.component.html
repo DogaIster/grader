@@ -1,1 +1,37 @@
-<p>add-new-results works!</p>
+<div class="container">
+  <form [formGroup]="resultForm" (ngSubmit)="onSubmit()" class="form">
+    <h2>Add New Results</h2>
+    <app-notification></app-notification>
+    <div class="form-group">
+      <label for="studentName">Student Name:</label>
+      <select id="studentName" formControlName="studentName">
+        <option *ngFor="let student of studentOptions" [ngValue]="student.id">{{ student.name }}</option>
+      </select>
+      <div *ngIf="formControls.studentName?.invalid && formControls.studentName?.touched" class="error-message">
+        Student name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="courseName">Course Name:</label>
+      <select id="courseName" formControlName="courseName">
+        <option *ngFor="let course of courseOptions" [ngValue]="course.id">{{ course.name }}</option>
+      </select>
+      <div *ngIf="formControls.courseName?.invalid && formControls.courseName?.touched" class="error-message">
+        Course name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="score">Score:</label>
+      <select id="score" formControlName="score">
+        <option *ngFor="let score of scoreOptions" [value]="score.value">{{ score.label }}</option>
+      </select>
+      <div *ngIf="formControls.score?.invalid && formControls.score?.touched" class="error-message">
+        Score is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="resultForm.invalid" class="submit-button">Submit</button>
+  </form>
+</div>

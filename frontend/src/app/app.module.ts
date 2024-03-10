@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AddNewStudentsModule} from "./add-new-students/add-new-students.module";
 import {NotificationComponent} from "./shared/notification/notification.component";
 import {AddNewCoursesModule} from "./add-new-courses/add-new-courses.module";
+import {AddNewResultsModule} from "./add-new-results/add-new-results.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,6 @@ import {AddNewCoursesModule} from "./add-new-courses/add-new-courses.module";
     HomeComponent,
     StudentsListComponent,
     CoursesListComponent,
-    AddNewResultsComponent,
     ResultsListComponent
   ],
   imports: [
@@ -29,7 +29,8 @@ import {AddNewCoursesModule} from "./add-new-courses/add-new-courses.module";
     AppRoutingModule,
     HttpClientModule,
     AddNewStudentsModule,
-    AddNewCoursesModule
+    AddNewCoursesModule,
+    AddNewResultsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
