@@ -1,0 +1,36 @@
+<div class="container">
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="form">
+<h2>Add New Students</h2>
+    <app-notification></app-notification>
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName">
+      <div *ngIf="formControls.firstName.invalid && (formControls.firstName.dirty || formControls.firstName.touched)" class="error-message">First name is required and must be at least 2 characters long.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName">
+      <div *ngIf="formControls.lastName.invalid && (formControls.lastName.dirty || formControls.lastName.touched)" class="error-message">Last name is required and must be at least 2 characters long.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input id="dob" type="date" formControlName="dob">
+      <div *ngIf="formControls.dob.invalid && formControls.dob.touched" class="error-message">
+        <ng-container *ngIf="formControls.dob.errors?.minAge">
+          Minimum age required is {{ formControls.dob.errors?.minAge?.requiredAge }} years. Actual age is {{ formControls.dob.errors?.minAge?.actualAge }} years.
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="formControls.email.invalid && (formControls.email.dirty || formControls.email.touched)" class="error-message">Email is required and must be a valid email address.</div>
+    </div>
+
+    <button type="submit" [disabled]="studentForm.invalid" class="submit-button">Submit</button>
+  </form>
+</div>
+

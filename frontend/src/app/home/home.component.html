@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a (click)="scrollToSection('add-new-student')">Add New Students</a></li>
+      <li><a (click)="scrollToSection('students-list')">Students List</a></li>
+      <li><a (click)="scrollToSection('add-new-courses')">Add New Courses</a></li>
+      <li><a (click)="scrollToSection('courses-list')">Courses List</a></li>
+      <li><a (click)="scrollToSection('add-new-results')">Add New Results</a></li>
+      <li><a (click)="scrollToSection('results-list')">Results List</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+    <div class="landing">
+      <div class="landing-content">
+        <h1 class="welcome-message">{{ title }}</h1>
+        <p class="description">{{ description }}</p>
+      </div>
+    </div>
+
+    <!-- Add New Students Section -->
+    <div class="section" id="add-new-student">
+      <add-new-students></add-new-students>
+    </div>
+
+    <!-- Students List Section -->
+    <div class="section" id="students-list">
+      <h2>Students List</h2>
+      <!-- Add your Students List component here -->
+    </div>
+
+    <!-- Add New Courses Section -->
+    <div class="section" id="add-new-courses">
+      <h2>Add New Courses</h2>
+      <!-- Add your Add New Courses component here -->
+    </div>
+
+    <!-- Courses List Section -->
+    <div class="section" id="courses-list">
+      <h2>Courses List</h2>
+      <!-- Add your Courses List component here -->
+    </div>
+
+    <!-- Add New Results Section -->
+    <div class="section" id="add-new-results">
+      <h2>Add New Results</h2>
+      <!-- Add your Add New Results component here -->
+    </div>
+
+    <!-- Results List Section -->
+    <div class="section" id="results-list">
+      <h2>Results List</h2>
+      <!-- Add your Results List component here -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div *ngFor="let message of notificationService.messagesChange | async">
+  <div class="notification">
+    <span class="message">{{ message }}</span>
+  </div>
+</div>
