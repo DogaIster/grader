@@ -5,15 +5,15 @@ import { addStudentToDB, getAllStudentsFromDB, getStudentByIdFromDB, deleteStude
 // Controller logic for student routes
 export const addStudent = async (req: Request, res: Response) => {
     try {
-        const { first_name, last_name, dob, email } = req.body;
+        const { firstName, lastName, dob, email } = req.body;
 
         // Basic validation
-        if (!first_name || !last_name || !dob || !email) {
+        if (!firstName || !lastName || !dob || !email) {
             return res.status(400).json({ error: 'To add a student all the fields are required' });
         }
 
         // Call the function to add a new student to the database
-        const newStudent: Student = await addStudentToDB({ first_name, last_name, dob, email });
+        const newStudent: Student = await addStudentToDB({ firstName, lastName, dob, email });
 
         res.status(201).json(newStudent);
     } catch (error) {

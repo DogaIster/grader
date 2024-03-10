@@ -6,21 +6,21 @@ const db = new sqlite3.Database(':memory:');
 
 // Create a table for students
 db.serialize(() => {
-    db.run('CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, dob TEXT, email TEXT)');
+    db.run('CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT, dob TEXT, email TEXT)');
 });
 
 // Function to add a new student to the database
 export const addStudentToDB = async (student: Student): Promise<Student> => {
     return new Promise((resolve, reject) => {
-        db.run('INSERT INTO students (first_name, last_name, dob, email) VALUES (?, ?, ?, ?)',
-            [student.first_name, student.last_name, student.dob, student.email], function(err) {
+        db.run('INSERT INTO students (firstName, lastName, dob, email) VALUES (?, ?, ?, ?)',
+            [student.firstName, student.lastName, student.dob, student.email], function(err) {
                 if (err) {
                     reject(err);
                 } else {
                     resolve({
                         id: this.lastID,
-                        first_name: student.first_name,
-                        last_name: student.last_name,
+                        firstName: student.firstName,
+                        lastName: student.lastName,
                         dob: student.dob,
                         email: student.email
                     });

@@ -30,8 +30,8 @@ studentDB.serialize(() => {
     studentDB.run(`
         CREATE TABLE IF NOT EXISTS students (
             id INTEGER PRIMARY KEY,
-            first_name TEXT,
-            last_name TEXT,
+            firstName TEXT,
+            lastName TEXT,
             dob TEXT,
             email TEXT
         )
