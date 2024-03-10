@@ -8,9 +8,6 @@
       <div *ngIf="formControls.courseName?.errors?.required && formControls.courseName?.touched" class="error-message">
         Course name is required.
       </div>
-      <div *ngIf="formControls.courseName?.errors?.minlength && formControls.courseName?.touched" class="error-message">
-        Course name must be at least 3 characters long.
-      </div>
     </div>
     <button type="submit" [disabled]="courseForm.invalid" class="submit-button">Submit</button>
   </form>
