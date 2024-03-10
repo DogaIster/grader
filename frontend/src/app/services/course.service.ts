@@ -21,7 +21,8 @@ export class CourseService {
   }
 
   addCourse(course: Course): Observable<Course> {
-    return this.http.post<Course>(this.baseUrl, course);
+    const payload = { name: course };
+    return this.http.post<Course>(this.baseUrl, payload);
   }
 
   updateCourse(course: Course): Observable<Course> {

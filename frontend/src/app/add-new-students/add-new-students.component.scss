@@ -2,15 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust as needed */
+  height: 100vh;
   width: 70%;
 }
 
 .form {
-  width: 300px; /* Adjust the width as needed */
+  width: 300px;
   padding: 20px;
-  border: 1px solid #ccc; /* Add border */
-  border-radius: 5px; /* Add border radius */
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .form-group {
@@ -24,11 +24,11 @@
   input[type="text"],
   input[type="date"],
   input[type="email"] {
-    width: calc(100% - 20px); /* Adjust input width to account for padding */
+    width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box;
   }
 
   .error-message {
@@ -38,7 +38,7 @@
 }
 
 .submit-button {
-  width: 100%; /* Make button full width */
+  width: 100%;
   padding: 10px;
   background-color: #007bff;
   color: #fff;

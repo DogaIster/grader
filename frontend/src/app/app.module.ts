@@ -13,13 +13,13 @@ import { ResultsListComponent } from './results-list/results-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {AddNewStudentsModule} from "./add-new-students/add-new-students.module";
 import {NotificationComponent} from "./shared/notification/notification.component";
+import {AddNewCoursesModule} from "./add-new-courses/add-new-courses.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     StudentsListComponent,
-    AddNewCoursesComponent,
     CoursesListComponent,
     AddNewResultsComponent,
     ResultsListComponent
@@ -28,7 +28,8 @@ import {NotificationComponent} from "./shared/notification/notification.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AddNewStudentsModule
+    AddNewStudentsModule,
+    AddNewCoursesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

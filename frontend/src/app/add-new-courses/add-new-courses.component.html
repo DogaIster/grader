@@ -1,1 +1,17 @@
-<p>add-new-courses works!</p>
+<div class="container">
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="form">
+    <h2>Add New Course</h2>
+    <app-notification></app-notification>
+    <div class="form-group">
+      <label for="courseName">Course Name:</label>
+      <input type="text" id="courseName" formControlName="courseName" placeholder="Enter course name">
+      <div *ngIf="formControls.courseName?.errors?.required && formControls.courseName?.touched" class="error-message">
+        Course name is required.
+      </div>
+      <div *ngIf="formControls.courseName?.errors?.minlength && formControls.courseName?.touched" class="error-message">
+        Course name must be at least 3 characters long.
+      </div>
+    </div>
+    <button type="submit" [disabled]="courseForm.invalid" class="submit-button">Submit</button>
+  </form>
+</div>
