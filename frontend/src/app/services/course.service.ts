@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable, Subject, switchMap, tap} from 'rxjs';
+import {Observable, Subject, tap} from 'rxjs';
 import { Course } from '../models/course.model';
 import {BASE_URL} from "../api-config";
-import {ResultService} from "./result.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,7 @@ export class CourseService {
   private courseDeletedSubject = new Subject<void>();
 
 
-  constructor(private http: HttpClient,
-              private resultService: ResultService
+  constructor(private http: HttpClient
   ) { }
 
   getAllCourses(): Observable<Course[]> {
@@ -38,12 +36,12 @@ export class CourseService {
     console.log('Deleting course with ID:', id);
     return this.http.delete<void>(`${this.baseUrl}/${id}`).pipe(
       tap(() => {
-        this.courseDeletedSubject.next(); // Notify subscribers about course deletion
+        this.courseDeletedSubject.next();
       })
     );
   }
 
   courseDeleted(): Observable<void> {
-    return this.courseDeletedSubject.asObservable(); // Expose the course deleted event
+    return this.courseDeletedSubject.asObservable();
   }
 }

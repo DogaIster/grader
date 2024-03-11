@@ -9,7 +9,7 @@ import {BASE_URL} from "../api-config";
 })
 export class ResultService {
   private baseUrl = `${BASE_URL}/results`;
-  private addResultSubject = new Subject<void>(); // Subject for result addition
+  private addResultSubject = new Subject<void>();
 
   constructor(private http: HttpClient) { }
 
@@ -23,12 +23,10 @@ export class ResultService {
 
   addResult(result: Result): Observable<Result> {
     return this.http.post<Result>(this.baseUrl, result).pipe(
-      // Emit event when result is successfully added
       tap(() => this.addResultSubject.next())
     );
   }
 
-  // Observable to subscribe to for result addition event
   get onResultAdded(): Observable<void> {
     return this.addResultSubject.asObservable();
   }

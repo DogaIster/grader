@@ -19,14 +19,4 @@ export class StudentUpdateService {
   notifyStudentAdded(): void {
     this.studentAddedSubject.next();
   }
-
-// Method to emit event when student is deleted
-  emitStudentDeleted(studentId: number) {
-    this.deleteStudentSubject.next(studentId);
-  }
-
-  // Observable to subscribe to for student deletion event
-  get onStudentDeleted() {
-    return this.deleteStudentSubject.asObservable();
-  }
 }

@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { Student } from '../models/studentModel';
 import { addStudentToDB, getAllStudentsFromDB, getStudentByIdFromDB, deleteStudentFromDB } from '../db/studentDatabase';
 
-// Controller logic for student routes
 export const addStudent = async (req: Request, res: Response) => {
     try {
         const { firstName, lastName, dob, email } = req.body;

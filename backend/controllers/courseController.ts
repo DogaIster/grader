@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import { addCourseToDB, getAllCoursesFromDB, deleteCourseFromDB } from '../db/courseDatabase';
 
-// Controller logic for course routes
-
 // Add a new course
 export const addCourse = async (req: Request, res: Response) => {
     try {

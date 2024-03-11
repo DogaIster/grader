@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import { addResultToDB, getAllResultsFromDB, deleteResultsByStudentIdFromDB, deleteResultsByCourseIdFromDB } from '../db/resultDatabase';
 
-// Controller logic for result routes
-
 // Add a new result
 export const addResult = async (req: Request, res: Response) => {
     try {

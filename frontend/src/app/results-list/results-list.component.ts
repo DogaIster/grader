@@ -6,7 +6,6 @@ import { Result } from '../models/result.model';
 import {Student} from "../models/student.model";
 import {Course} from "../models/course.model";
 import {ResultUpdateService} from "../shared/services/result-update.service";
-import {CourseUpdateService} from "../shared/services/course-update.service";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -42,26 +41,21 @@ export class ResultsListComponent implements OnInit {
     });
 
     this.courseDeletedSub = this.courseService.courseDeleted().subscribe(() => {
-      console.log('Course deletion event received');
-      // this.loadResults(); // Reload results list when a course is deleted
       this.loadResults();
       this.loadCourses();
       this.loadStudents();
     });
 
     this.studentDeletedSub = this.studentService.studentDeleted().subscribe(() => {
-      console.log('Student deletion event received');
-      // this.loadResults(); // Reload results list when a course is deleted
       this.loadResults();
       this.loadCourses();
       this.loadStudents();
     });
   }
 
-
   ngOnDestroy(): void {
     this.studentDeletedSub.unsubscribe();
-    this.courseDeletedSub.unsubscribe(); // Unsubscribe from course deletion event
+    this.courseDeletedSub.unsubscribe();
   }
 
   loadResults(): void {

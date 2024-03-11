@@ -36,13 +36,13 @@ body {
 
 /* Style the sidebar navigation */
 .container {
-  display: flex; // Use flexbox to align items horizontally
+  display: flex;
 }
 
 .sidebar {
   width: 200px;
   margin-top: 20px;
-  height: calc(48vh - 100px); /* Adjust as needed */
+  height: calc(48vh - 100px);
   background-color: #333;
   color: #fff;
   padding: 20px;
@@ -67,9 +67,9 @@ body {
 }
 
 .content {
-  flex-grow: 1; // Allow content to grow and occupy remaining space
+  flex-grow: 1;
   padding: 20px;
-  margin-left: 20px; // Add margin to separate content from sidebar
+  margin-left: 20px;
 }
 
 @keyframes fadeInUp {

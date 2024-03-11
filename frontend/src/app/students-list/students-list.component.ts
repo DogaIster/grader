@@ -22,7 +22,6 @@ export class StudentsListComponent implements OnInit {
 
   getStudents(): void {
     this.studentService.getAllStudents().subscribe(data => {
-      // Map the received data to match the expected property names with the BE
       this.students = data.map((student: any) => ({
         id: student.id,
         firstName: student.firstName,
@@ -36,7 +35,6 @@ export class StudentsListComponent implements OnInit {
   deleteStudent(id: number): void {
     this.studentService.deleteStudent(id).subscribe(
       () => {
-        // Remove the deleted student from the array
         this.students = this.students.filter(student => student.id !== id);
         console.log('Student deleted successfully.');
       },
