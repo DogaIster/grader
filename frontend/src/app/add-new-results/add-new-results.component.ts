@@ -8,6 +8,8 @@ import {Course} from "../models/course.model";
 import {Student} from "../models/student.model";
 import {CourseUpdateService} from "../shared/services/course-update.service";
 import {StudentUpdateService} from "../shared/services/student-update.service";
+import {ResultUpdateService} from "../shared/services/result-update.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'add-new-results',
@@ -28,6 +30,8 @@ export class AddNewResultsComponent implements OnInit {
     { value: 'E', label: 'E' },
     { value: 'F', label: 'F' }
   ];
+  // @ts-ignore
+  private courseDeletedSub: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,7 +40,8 @@ export class AddNewResultsComponent implements OnInit {
     private studentService: StudentService,
     private notificationService: NotificationService,
     private courseUpdateService: CourseUpdateService,
-    private studentUpdateService: StudentUpdateService
+    private studentUpdateService: StudentUpdateService,
+    private resultUpdateService: ResultUpdateService
   ) {
     this.resultForm = this.formBuilder.group({
       studentName: ['', Validators.required],
@@ -52,6 +57,11 @@ export class AddNewResultsComponent implements OnInit {
       this.loadCourses();
     });
     this.studentUpdateService.studentAdded().subscribe(() => {
+      this.loadStudents();
+    });
+
+    this.courseDeletedSub = this.courseService.courseDeleted().subscribe(() => {
+      this.loadCourses();
       this.loadStudents();
     });
   }
@@ -94,6 +104,7 @@ export class AddNewResultsComponent implements OnInit {
         this.resultForm.reset();
         this.loadCourses();
         this.loadStudents();
+        this.resultUpdateService.notifyResultAdded();
       },
       (error) => {
         console.error('Error adding result:', error);

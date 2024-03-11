@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class StudentUpdateService {
   // @ts-ignore
   private studentAddedSubject = new BehaviorSubject<void>(null);
+  private deleteStudentSubject = new Subject<number>();
+
 
   constructor() { }
 
@@ -16,5 +18,15 @@ export class StudentUpdateService {
 
   notifyStudentAdded(): void {
     this.studentAddedSubject.next();
+  }
+
+// Method to emit event when student is deleted
+  emitStudentDeleted(studentId: number) {
+    this.deleteStudentSubject.next(studentId);
+  }
+
+  // Observable to subscribe to for student deletion event
+  get onStudentDeleted() {
+    return this.deleteStudentSubject.asObservable();
   }
 }

@@ -16,11 +16,11 @@ resultDB.serialize(() => {
     resultDB.run(`
         CREATE TABLE IF NOT EXISTS results (
             id INTEGER PRIMARY KEY,
-            student_id INTEGER,
-            course_id INTEGER,
+            studentId INTEGER,
+            courseId INTEGER,
             score TEXT,
-            FOREIGN KEY (student_id) REFERENCES students(id),
-            FOREIGN KEY (course_id) REFERENCES courses(id)
+            FOREIGN KEY (studentId) REFERENCES students(id) ON DELETE CASCADE,
+            FOREIGN KEY (courseId) REFERENCES courses(id) ON DELETE CASCADE
         )
     `);
 });
@@ -51,7 +51,7 @@ courseDB.serialize(() => {
 // Function to add a new result to the database
 export const addResultToDB = async (studentId: number, courseId: number, score: string): Promise<void> => {
     return new Promise<void>((resolve, reject) => {
-        resultDB.run('INSERT INTO results (student_id, course_id, score) VALUES (?, ?, ?)', [studentId, courseId, score], function(err: Error | null) {
+        resultDB.run('INSERT INTO results (studentId, courseId, score) VALUES (?, ?, ?)', [studentId, courseId, score], function(err: Error | null) {
             if (err) {
                 reject(err);
             } else {
@@ -80,7 +80,7 @@ export const getAllResultsFromDB = async (): Promise<Result[]> => {
 // Function to delete results associated with a specific student
 export const deleteResultsByStudentIdFromDB = async (studentId: number): Promise<void> => {
     return new Promise<void>((resolve, reject) => {
-        resultDB.run('DELETE FROM results WHERE student_id = ?', [studentId], function(err: Error | null) {
+        resultDB.run('DELETE FROM results WHERE studentId = ?', [studentId], function(err: Error | null) {
             if (err) {
                 reject(err);
             } else {
@@ -93,7 +93,7 @@ export const deleteResultsByStudentIdFromDB = async (studentId: number): Promise
 // Function to delete results associated with a specific course
 export const deleteResultsByCourseIdFromDB = async (courseId: number): Promise<void> => {
     return new Promise<void>((resolve, reject) => {
-        resultDB.run('DELETE FROM results WHERE course_id = ?', [courseId], function(err: Error | null) {
+        resultDB.run('DELETE FROM results WHERE courseId = ?', [courseId], function(err: Error | null) {
             if (err) {
                 reject(err);
             } else {

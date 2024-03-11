@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NotificationService {
   private messagesSource = new BehaviorSubject<string[]>([]);
   messagesChange: Observable<string[]> = this.messagesSource.asObservable();
